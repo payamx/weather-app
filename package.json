@@ -1,6 +1,6 @@
 {
-  "homepage": "https://payamx.github.io/weather-app",
-  "name": "vite-weather",
+  "homepage": "https://github.com/payamx/weather-app.git",
+  "name": "weather",
   "private": true,
   "version": "0.0.0",
   "type": "module",
