@@ -7,14 +7,14 @@ import Search from "./Search";
 import TodayWeather from "./TodayWeather";
 import NextDaysWeather from "./NextDaysWeather";
 import {useTheme} from '@mui/material/styles';
-import {RainEffectComponent} from "./RainDrop.jsx";
+// import {RainEffectComponent} from "./RainDrop.jsx";
 import Errorpage from "./Errorpage";
 
 const Weather = () => {
     const theme =useTheme();
 
     const [weatherData4, setWeatherData4] = useState(null);
-    const [cityName, setCityName] = useState('Tehran');
+    const [cityName, setCityName] = useState('');
     const [error,setError]=useState(false);
 
 
@@ -140,7 +140,7 @@ const Weather = () => {
         error? <Errorpage/>:
         <DivStyle >
             {/*weatherData4?.current.condition.text   این استیت باید بعنوان پراپس وارد شود ولی چون هوا آفتابی هست 😂 فعلا  استاتیک مقدار دادم که افکت دیده شه */}
-            {/*<RainEffectComponent weatherCondition={'rain'}/>*/}
+            {/*<RainEffectComponent weatherCondition={weatherData4?.current.condition.text}/>*/}
 
             <Box>
 

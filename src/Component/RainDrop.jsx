@@ -20,7 +20,7 @@ export const RainEffectComponent = ({weatherCondition}) => {
     useEffect(() => {
 
         func()
-    }, []);
+    } , []);
 
 
     const createRaindrops = () => {

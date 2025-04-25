@@ -1,4 +1,3 @@
-import React from 'react';
 import {Box, Divider} from "@mui/material";
 import Stack from "@mui/material/Stack";
 import {styled, useTheme} from "@mui/material/styles";
