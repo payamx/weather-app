@@ -12,7 +12,7 @@ const NextDaysWeather = ({weatherData4, nextThreeDays}) => {
                 [theme.breakpoints.down('sm')]: {
                     display: 'flex',
                     flexDirection: 'row-reverse',
-                    margin:'20px 10px',
+                    margin:'20px 10px  0px',
                     paddingRight:'25px',
                 }, [theme.breakpoints.up('md')]: {
                     display: 'inline-flex',
@@ -38,17 +38,17 @@ const NextDaysWeather = ({weatherData4, nextThreeDays}) => {
 
 
         <>
-            <Box >
+            <Box  >
 
                 {
                 weatherData4?.forecast.forecastday?.map((item, index) =>
 
 
 
-                    <Styledbox key={index}>
+                    <Styledbox key={index} display="flex" justifyContent="center" gap={1}>
 
 
-                        <Stack spacing={2} fontSize={22} >
+                        <Stack  fontSize={18} p={1}>
 
                             <span>{nextThreeDays[index + 1]}</span>
                             {/*<span> {toFa[item.day.condition.text]}</span>*/}
@@ -59,22 +59,45 @@ const NextDaysWeather = ({weatherData4, nextThreeDays}) => {
 
                         </span>
 
-                        <Box padding={3} fontSize={32} >
+                        <Box padding={1} fontSize={32} display="flex" justifyContent="center" gap={1}>
+                            {/* Min temp */}
+                            <Box
+                                component="span"
+                                fontWeight="bold"
+                                minWidth="50px"
+                                textAlign="center"
+                                sx={{
+                                    p: 1,
 
-                            {/*min temp*/}
-                            <Box component="span"
-                                 fontWeight={"bold"}
-                                 sx={{ p: 2, m:1 ,border: '1px solid #FFFFFF' ,borderRadius:'15px',color:'darkblue',bgcolor:'#f5eeed'}}>
-                                { Math.floor(item.day.mintemp_c) }<span style={{color: 'grey'}}>°</span>
+                                    border: '1px solid #FFFFFF',
+                                    borderRadius: '15px',
+                                    color: 'darkblue',
+                                    bgcolor: '#f5eeed'
+                                }}
+                            >
+                                {Math.floor(item.day.mintemp_c)}
+                                <span style={{ color: 'grey' }}>°</span>
                             </Box>
-                                {/*//max temp*/}
-                            <Box component="span"
-                                 fontWeight={"bold"}
-                                 sx={{  p: 2, m:1 ,border: '1px solid #FFFFFF' ,borderRadius:'15px' ,color:'orange',bgcolor:'#f5eeed'}}>
-                                { Math.floor(item.day.maxtemp_c)}<span style={{color: 'grey'}}>°</span>
+
+                            {/* Max temp */}
+                            <Box
+                                component="span"
+                                fontWeight="bold"
+                                minWidth="50px"
+                                textAlign="center"
+                                sx={{
+                                    p: 1,
+                                    border: '1px solid #FFFFFF',
+                                    borderRadius: '15px',
+                                    color: 'orange',
+                                    bgcolor: '#f5eeed'
+                                }}
+                            >
+                                {Math.floor(item.day.maxtemp_c)}
+                                <span style={{ color: 'grey' }}>°</span>
+                            </Box>
                         </Box>
 
-                        </Box>
 
                         <Divider/>
                     </Styledbox>

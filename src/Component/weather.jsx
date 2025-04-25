@@ -14,30 +14,32 @@ const Weather = () => {
     const theme =useTheme();
 
     const [weatherData4, setWeatherData4] = useState(null);
-    const [cityName, setCityName] = useState('');
+    const [cityName, setCityName] = useState('Tehran');
     const [error,setError]=useState(false);
 
 
     const images = mapping[weatherData4?.current.condition?.text ] || defaultImages;
 
-    const DivStyle = styled(Box)(({theme}) =>
-        (
-
-    {
-    [theme.breakpoints.down('sm')]:
-    {backgroundImage: `url(${images.mobile[Math.floor(Math.random() * images.mobile.length)]})`,
-        backgroundSize: 'fill', margin:'0px' },
-    [theme.breakpoints.up('md')]:
-        {backgroundImage:`url(${images.desktop[Math.floor(Math.random() * images.desktop.length)]})`,
-            height:'100vh'  , backgroundSize: 'cover'
-        },
+    const DivStyle = styled(Box)(({ theme }) => ({
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
         textAlign: "center",
-        backgroundRepeat:"no-repeat",
-        backgroundPosition: 'center',
-        color:'#ffffff',
-        marginY:'20px',
+        color: "#ffffff",
+        minHeight: "100vh", // always at least screen height
+        height: "100%", // grow with content
+        [theme.breakpoints.down("sm")]: {
+            backgroundImage: `url(${images.mobile[Math.floor(Math.random() * images.mobile.length)]})`,
+            margin: "0px",
+            minHeight: "100vh", // <-- ADD THIS
+            height: "100%", // <-- ADD THIS
+        },
+        [theme.breakpoints.up("md")]: {
+            backgroundImage: `url(${images.desktop[Math.floor(Math.random() * images.desktop.length)]})`,
+            backgroundAttachment: "fixed", // optional
+        },
+    }));
 
-            }))
 
 
 
@@ -138,7 +140,7 @@ const Weather = () => {
         error? <Errorpage/>:
         <DivStyle >
             {/*weatherData4?.current.condition.text   این استیت باید بعنوان پراپس وارد شود ولی چون هوا آفتابی هست 😂 فعلا  استاتیک مقدار دادم که افکت دیده شه */}
-            <RainEffectComponent weatherCondition={'rain'}/>
+            {/*<RainEffectComponent weatherCondition={'rain'}/>*/}
 
             <Box>
 
